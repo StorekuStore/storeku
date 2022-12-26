@@ -1,5 +1,3 @@
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable no-restricted-syntax */
 const Storeku = require('../models/storeku');
 const cloudinary = require('cloudinary').v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
@@ -23,7 +21,6 @@ const uploadImg = multer({ storage }).array('image', 12);
 
 const createStoreku = async (req, res) => {
   const {
-    code,
     title,
     surfaceArea,
     buildingArea,
@@ -68,7 +65,6 @@ const createStoreku = async (req, res) => {
   }
 
   const newStoreku = new Storeku({
-    code,
     title,
     surfaceArea,
     buildingArea,
@@ -110,7 +106,6 @@ const getAllStoreku = async (req, res) => {
 
 const getSemuaStoreku = async (req, res) => {
   const { user } = req;
-  console.log(user);
 
   const userAccount = await User.findOne({
     id: user._id,
@@ -169,7 +164,6 @@ const editStoreku = async (req, res, next) => {
   }
 
   const {
-    code,
     title,
     surfaceArea,
     buildingArea,
@@ -195,7 +189,6 @@ const editStoreku = async (req, res, next) => {
     { _id: id },
     {
       $set: {
-        code,
         title,
         surfaceArea,
         buildingArea,
@@ -247,7 +240,6 @@ const deleteStoreku = async (req, res) => {
   const userAccount = await User.findOne({
     _id: user._id,
   });
-  console.log(userAccount);
 
   if (userAccount === undefined) {
     res.status(400).json({
