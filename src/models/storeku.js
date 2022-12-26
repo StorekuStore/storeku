@@ -2,13 +2,9 @@ const { model, Schema } = require('mongoose');
 
 const StorekuSchema = new Schema(
   {
-    code: {
-      type: String,
-      // unique: true,
-    },
     title: {
       type: String,
-      // required: true,
+      required: true,
     },
     surfaceArea: {
       type: String,
@@ -51,23 +47,22 @@ const StorekuSchema = new Schema(
     },
     category: {
       type: String,
-      // required: true,
+      required: true,
     },
     address: {
       type: String,
-      // required: true,
+      required: true,
     },
     city: {
       type: String,
-      // required: true,
+      required: true,
     },
     description: {
       type: String,
-      // required: true,
     },
     price: {
       type: String,
-      // required: true,
+      required: true,
     },
     image: [
       {

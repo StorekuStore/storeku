@@ -215,10 +215,17 @@ const editStoreku = async (req, res, next) => {
         city,
         description,
         price,
-        image: urls,
       },
     },
   );
+
+  const images = await Storeku.findOne({
+    _id: id,
+  });
+
+  images.image.push(urls);
+
+  await images.save();
 
   if (store) {
     res.status(201).json({
