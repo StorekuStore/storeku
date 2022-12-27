@@ -62,7 +62,6 @@ const StorekuSchema = new Schema(
     },
     price: {
       type: String,
-      required: true,
     },
     image: [
       {
