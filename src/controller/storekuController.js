@@ -17,7 +17,7 @@ const storage = new CloudinaryStorage({
   },
 });
 
-const uploadImg = multer({ storage }).array('image', 12);
+const uploadImg = multer({ storage }).array('image');
 
 const createStoreku = async (req, res) => {
   const {
